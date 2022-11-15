@@ -37,8 +37,6 @@ public class Driver {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("appium:udid", device.udid);
         capabilities.setCapability("appium:platformName", device.platformName); //mobil işlemcinin adı
-        capabilities.setCapability("noReset", device.fullReset); // tam bir sıfırlama gerçekleştirme. her defasında login olma durumu
-        //noResetoturumdan önce uygulama durumunu sıfırlamayın diyorum. tekrar kullanıcı adı ve şifre girme
 
         capabilities.setCapability("appium:appPackage", app.appPackage);  //aplikasyonun package adresi
         capabilities.setCapability("appium:appActivity", app.appActivity); //başlatmak istediğimiz Android etkinliğinin adı
@@ -58,7 +56,7 @@ public class Driver {
     @AfterScenario
     public void stopApp() throws InterruptedException {
         Thread.sleep(1000);
-        driver.quit();
+        //driver.quit();
         stopAppium();
         logger.info("Appium is stopped");
     }

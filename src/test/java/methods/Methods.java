@@ -16,7 +16,7 @@ public class Methods extends Driver {
 
     private static Logger log = Logger.getLogger(Methods.class.getName());
 
-    @Step("Sayfayi kaydir")
+
     public void scrollTo(){
         Dimension dimension = Driver.driver.manage().window().getSize();
         int height = dimension.getHeight();
@@ -32,12 +32,43 @@ public class Methods extends Driver {
                 .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2)))
                 .moveTo(PointOption.point(finishX, finishY)).release().perform();
     }
-    @Step("<locator> elementini bul ve tıkla")
+
     public void clickTo(By locator){
         wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+        log.info(locator + "Elementine tıklandı tıklandı");
     }
-    @Step("<locator> elementini bul ve <text> yaz")
+
     public void sendKeysTo(By locator, String text) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).sendKeys(text);
+        log.info(locator + "Elementine text girildi");
+    }
+    public void waitS(long seconds){
+        try {
+            Thread.sleep(seconds*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        log.info(seconds + " saniye beklendi");
+    }
+    public void scrollTo(double x, double y, double x1, double y1) throws InterruptedException {
+        Dimension dimension = Driver.driver.manage().window().getSize();
+        int startX = (int) (dimension.width * x);
+        int finishX = (int) (dimension.width * x1);
+
+        int startY = (int) (dimension.height * y);
+        int finishY = (int) (dimension.height * y1);
+        //boyutları belirledikten sonra dokunma eylemine geçiyoruz
+        TouchAction touch = new TouchAction(Driver.driver);
+
+        for (int i = 0; i < 5; i++) {
+            touch.press(PointOption.point(startX, startY)) //başlanılan yer
+                    .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
+                    .moveTo(PointOption.point(finishX, finishY)).release().perform(); // biten yer
+        }
+        log.info("Scroll yapıldı");
+    }
+    public int randomSayi(int size){
+        return (int) (Math.random() * size);
+
     }
 }

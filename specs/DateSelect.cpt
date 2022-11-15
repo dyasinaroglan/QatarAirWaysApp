@@ -1,0 +1,12 @@
+Created by HUAWEİ on 15.11.2022
+
+This is a concept file with following syntax for each concept.
+# Gidiş tarihi bugünden itibaren +7 gün olarak belirlenir
+* "//android.widget.EditText[@package='com.pozitron.pegasus' and @text='Seçiniz']" seçiniz butonuna tıklanır
+* "//android.widget.TextView[@resource-id='com.pozitron.pegasus:id/list_item_date_selection_days_text_view' and @text='22']" tarih seçilir
+* "//android.widget.Button[@resource-id='com.pozitron.pegasus:id/fragment_date_selection_button_approve' and @text='Tarihi Onayla']" ucuz uçuş ara butonu tıklanır
+* "//android.widget.TextView[@resource-id='com.pozitron.pegasus:id/list_item_availability_flight_text_view_connection_info' and @text='Direkt Uçuş']" uçuşlar listelenir
+
+# ekonomi sınıfı seçilir
+* "//android.widget.TextView[@resource-id='com.pozitron.pegasus:id/availability_bundle_text_view_name' and @text='EKO']" ekonomi sınıfı seçilir
+* "//android.widget.TextView[@resource-id='com.pozitron.pegasus:id/list_item_availability_flight_text_view_departure_time']" uçuş saatleri kontrol edilir

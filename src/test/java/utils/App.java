@@ -2,7 +2,7 @@ package utils;
 
 public enum App {
 
-    QATARAIRWAYS("com.m.qr","com.m.qr.home.main.ui.HomeActivity");
+    QATARAIRWAYS("com.pozitron.pegasus","com.monitise.mea.pegasus.ui.splash.SplashActivity");
 
     public String appPackage;
     public String appActivity;
